@@ -9,19 +9,20 @@ namespace RepositoryPattern.Repositories
     {
         private readonly DataContext context;
 
-        public DepartmentRepository(DataContext context)
+        public DepartmentRepository(DataContext _context)
         {
-            this.context = context;
+            context = _context;
         }
 
         public Department GetDepartment(int departmentId)
         {
-            throw new NotImplementedException();
+            return context.Departments
+                .FirstOrDefault(d => d.DepartmentId == departmentId);
         }
 
         public IEnumerable<Department> GetDepartments()
         {
-            throw new NotImplementedException();
+            return context.Departments;
         }
     }
 }

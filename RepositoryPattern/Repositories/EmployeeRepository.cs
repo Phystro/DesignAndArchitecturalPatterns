@@ -9,34 +9,61 @@ namespace RepositoryPattern.Repositories
     {
         private readonly DataContext context;
 
-        public EmployeeRepository(DataContext context)
+        public EmployeeRepository(DataContext _context)
         {
-            this.context = context;
+            context = _context;
         }
 
-        public Task<Employee> AddEmployee(Employee employee)
+        public async Task<Employee> AddEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            var result = await context.Employees.AddAsync(employee);
+            await context.SaveChangesAsync();
+            return result.Entity;
         }
 
-        public void DeleteEmployee(int employeeId)
+        public async void DeleteEmployee(int employeeId)
         {
-            throw new NotImplementedException();
+            var result = await context.Employees
+                .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+            if (result != null)
+            {
+                context.Employees.Remove(result);
+                await context.SaveChangesAsync();
+            }
         }
 
-        public Task<Employee> GetEmployee(int employeeId)
+        public async Task<Employee> GetEmployee(int employeeId)
         {
-            throw new NotImplementedException();
+            return await context.Employees
+                .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
         }
 
-        public Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            throw new NotImplementedException();
+            return await context.Employees.ToListAsync();
         }
 
-        public Task<Employee> UpdateEmployee(Employee employee)
+        public async Task<Employee> UpdateEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            var result = await context.Employees
+                .FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
+
+            if (result != null)
+            {
+                result.FirstName = employee.FirstName;
+                result.LastName = employee.LastName;
+                result.Email = employee.Email;
+                result.DateOfBrith = employee.DateOfBrith;
+                // result.Gender = employee.Gender;
+                result.DepartmentId = employee.DepartmentId;
+                result.PhotoPath = employee.PhotoPath;
+
+                await context.SaveChangesAsync();
+
+                return result;
+            }
+
+            return null;
         }
     }
 }
