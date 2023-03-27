@@ -1,7 +1,20 @@
+global using GenericRepositoryPattern.Models;
+global using GenericRepositoryPattern.Data;
+global using GenericRepositoryPattern.Contracts;
+global using GenericRepositoryPattern.Repositories;
+global using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DataContext"));
+});
 
 var app = builder.Build();
 
