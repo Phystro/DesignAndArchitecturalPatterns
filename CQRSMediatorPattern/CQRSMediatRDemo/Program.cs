@@ -1,6 +1,20 @@
+global using Microsoft.EntityFrameworkCore;
+global using CQRSMediatRDemo.Models;
+global using MediatR;
+global using CQRSMediatRDemo.Repositories;
+global using CQRSMediatRDemo.Data;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<DataContext>( options => {
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DataContext"));
+} );
+
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
