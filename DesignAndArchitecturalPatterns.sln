@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericRepositoryPattern", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitOfWorkGenericRepositoryPattern", "UnitOfWorkGenericRepositoryPattern\UnitOfWorkGenericRepositoryPattern.csproj", "{13A20120-B036-4FBD-8F0D-861416A06AA4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQRSMediatorPattern", "CQRSMediatorPattern", "{630A2584-BB20-4A01-AE57-14E4B87F9799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSMediatRDemo", "CQRSMediatorPattern\CQRSMediatRDemo\CQRSMediatRDemo.csproj", "{106C719A-B03B-4033-A248-892AA4DDD15D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{13A20120-B036-4FBD-8F0D-861416A06AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A20120-B036-4FBD-8F0D-861416A06AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A20120-B036-4FBD-8F0D-861416A06AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106C719A-B03B-4033-A248-892AA4DDD15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106C719A-B03B-4033-A248-892AA4DDD15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106C719A-B03B-4033-A248-892AA4DDD15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106C719A-B03B-4033-A248-892AA4DDD15D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{106C719A-B03B-4033-A248-892AA4DDD15D} = {630A2584-BB20-4A01-AE57-14E4B87F9799}
 	EndGlobalSection
 EndGlobal
