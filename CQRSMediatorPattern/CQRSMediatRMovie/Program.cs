@@ -1,3 +1,6 @@
+global using CQRSMediatRMovie.Core.Enums;
+global using CQRSMediatRMovie.Domain.Entities.Movie;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
