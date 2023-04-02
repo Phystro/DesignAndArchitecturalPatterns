@@ -24,6 +24,15 @@ namespace CQRSMediatRMovie.Controllers
             return Ok(movies);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMovie(long id)
+        {
+            var movie = await _mediator.Send(new GetMovieQuery(id));
+            if(movie != null) return Ok(movie);
+
+            return NotFound($"No movie in the database with ID: {id}.");
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMovie([FromBody] CreateMovieRequest request)
         {
