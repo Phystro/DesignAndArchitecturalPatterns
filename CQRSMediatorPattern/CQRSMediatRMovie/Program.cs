@@ -1,5 +1,6 @@
 global using CQRSMediatRMovie.Core.Enums;
 global using CQRSMediatRMovie.Domain.Entities.Movie;
+global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
