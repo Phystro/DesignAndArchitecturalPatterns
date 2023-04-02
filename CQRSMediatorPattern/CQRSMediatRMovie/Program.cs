@@ -1,8 +1,8 @@
 global using CQRSMediatRMovie.Core.Enums;
 global using CQRSMediatRMovie.Domain.Entities.Movie;
 global using Microsoft.EntityFrameworkCore;
-global using CQRSMediatRMovie.Repository.Context;
 global using MediatR;
+global using CQRSMediatRMovie.Repository.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
