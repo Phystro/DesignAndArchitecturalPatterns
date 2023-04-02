@@ -17,6 +17,13 @@ namespace CQRSMediatRMovie.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetMovies()
+        {
+            var movies = await _mediator.Send(new GetMoviesQuery());
+            return Ok(movies);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMovie([FromBody] CreateMovieRequest request)
         {
