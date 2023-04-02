@@ -2,6 +2,7 @@ global using CQRSMediatRMovie.Core.Enums;
 global using CQRSMediatRMovie.Domain.Entities.Movie;
 global using Microsoft.EntityFrameworkCore;
 global using CQRSMediatRMovie.Repository.Context;
+global using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>( options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DataContext"));
 } );
+
+builder.Services.AddMediatR(typeof(Program));
 
 var app = builder.Build();
 
