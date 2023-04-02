@@ -8,6 +8,6 @@ namespace CQRSMediatRMovie.Repository.Context
 
 	}
 
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Movie> Movies { get; set; } = null!;
     }
 }
